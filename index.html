@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <title>Flipbook JuanJo</title>
     <!-- PageFlip CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/page-flip@2.2.0/dist/page-flip.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/page-flip@2.2.0/dist/page-flip.css" />
     <style>
         body {
             margin: 0;
@@ -19,6 +19,7 @@
         #flipbook {
             width: 800px;
             height: 600px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
         }
 
         .page {
@@ -42,20 +43,22 @@
     <script src="https://cdn.jsdelivr.net/npm/page-flip@2.2.0/dist/page-flip.browser.min.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-            const pageFlip = new St.PageFlip(
-                document.getElementById('flipbook'), {
-                width: 800,      // ancho del libro
-                height: 600,     // alto del libro
-                size: 'stretch', // ajusta al contenedor
-                minWidth: 370,
-                maxWidth: 1000,
-                maxHeight: 1200,
-                showCover: true,
-                mobileScrollSupport: false
-            }
+            // Inicializamos PageFlip directamente
+            const pageFlip = new PageFlip(
+                document.getElementById('flipbook'),
+                {
+                    width: 800,            // ancho del libro
+                    height: 600,           // alto del libro
+                    size: 'stretch',       // ajusta al contenedor
+                    minWidth: 370,
+                    maxWidth: 1000,
+                    maxHeight: 1200,
+                    showCover: true,
+                    mobileScrollSupport: false
+                }
             );
 
-            // Lista de imágenes de página
+            // Cargamos las 8 imágenes como páginas
             pageFlip.loadFromImages([
                 'images/1.png',
                 'images/2.png',
