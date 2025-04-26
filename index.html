@@ -43,13 +43,12 @@
     <script src="https://cdn.jsdelivr.net/npm/page-flip@2.2.0/dist/page-flip.browser.min.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-            // Inicializamos PageFlip directamente
             const pageFlip = new PageFlip(
                 document.getElementById('flipbook'),
                 {
-                    width: 800,            // ancho del libro
-                    height: 600,           // alto del libro
-                    size: 'stretch',       // ajusta al contenedor
+                    width: 800,
+                    height: 600,
+                    size: 'stretch',
                     minWidth: 370,
                     maxWidth: 1000,
                     maxHeight: 1200,
@@ -68,7 +67,12 @@
                 'images/6.png',
                 'images/7.png',
                 'images/8.png'
-            ]);
+            ]).then(() => {
+                // Una vez cargadas, renderizamos el flipbook
+                pageFlip.render();
+            }).catch(err => {
+                console.error('Error cargando imágenes:', err);
+            });
         });
     </script>
 
